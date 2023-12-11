@@ -4,7 +4,6 @@ npm-debug.log
 yarn-error.log
 *.pnp.js
 .pnp.js
-.env
 
 # React
 /build/
