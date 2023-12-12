@@ -1,6 +1,17 @@
-# Instrucciones de Uso de la API - Modelo User #
+# Instrucciones de Uso de la API #
 
-Asegúrate de tener el servidor en ejecución en http://localhost:3000 antes de probar las siguientes rutas. Puedes usar herramientas como Postman o cURL para interactuar con la API.
+Asegúrate de tener el archivo .env en la carpeta y el servidor en ejecución en http://localhost:3000 antes de probar las siguientes rutas. Puedes usar herramientas como Thunder Client, Postman o cURL para interactuar con la API.
+Nombre de la base de datos en postgres = usertest
+
+Ejemplo del archivo .env:
+```
+DB_USER = " "
+DB_PASSWORD = " "
+DB_HOST = localhost
+PORT = 3000
+```
+
+## Rutas del Modelo User ##
 
 ### 1. Crear un Usuario ###
 Ruta: POST http://localhost:3000/user
