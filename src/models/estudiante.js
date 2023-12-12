@@ -1,7 +1,7 @@
 const { DataTypes, UUIDV4 } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('estudiante', {
+  sequelize.define('Estudiante', {
     idEstudiante:{
       type: DataTypes.UUID,
       defaultValue: UUIDV4,
@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     idDocumento:{
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     nombres: {
@@ -37,11 +37,11 @@ module.exports = (sequelize) => {
         allowNull: false,
     },
     peso: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     estatura: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     alergias: { 
@@ -49,11 +49,11 @@ module.exports = (sequelize) => {
         allowNull: false,
     },
     grupoSanguineo: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },  
     contactoEmerg: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },  
     fotoPerfil: {
