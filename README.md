@@ -1,8 +1,8 @@
 # Instrucciones de Uso de la API #
 
-1- Clonar repo
-2- npm install
-3- npm start
+1. Clonar repo
+2. npm install
+3. npm start
 
 Asegúrate de tener el archivo .env en la carpeta y el servidor en ejecución en http://localhost:3000 antes de probar las siguientes rutas. Puedes usar herramientas como Thunder Client, Postman o cURL para interactuar con la API.
 Nombre de la base de datos en postgres = usertest
@@ -16,13 +16,13 @@ PORT = 3000
 ```
 
 Tech Stack:
-Express
-Postgresql
-Sequelize
-Nodemon
-JsonWebToken < para el manejo de inicio de sesion
-BCrypt < para hashear contraseñas
-Joi < para validar el input del la base de datos
+* Express
+* Postgresql
+* Sequelize
+* Nodemon
+* JsonWebToken < para el manejo de inicio de sesion
+* BCrypt < para hashear contraseñas
+* Joi < para validar el input del la base de datos
 
 ## Rutas del Modelo User ##
 
