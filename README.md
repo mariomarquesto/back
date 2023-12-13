@@ -346,4 +346,4 @@ PUT a : localhost:3001/parents/delete/"ID OBJETIVO"
 }
 ```
 
-Luego de hacer un borrado logico, si se realiza una nueva solicitud POST repitiendo alguno de los campos que son unicos(idDoc por ejemplo) deberia devolver error de que no puede repetirse ese campo(ya que no se realizó un DELETE).
+❗Luego de hacer un borrado logico, si se realiza una nueva solicitud POST repitiendo alguno de los campos que son unicos(idDoc por ejemplo) deberia devolver error de que no puede repetirse ese campo(ya que no se realizó un DELETE).
