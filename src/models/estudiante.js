@@ -1,10 +1,10 @@
-const { DataTypes, UUIDV4 } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define('Estudiante', {
-    idEstudiante:{
+    id:{
       type: DataTypes.UUID,
-      defaultValue: UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
     },
@@ -49,7 +49,7 @@ module.exports = (sequelize) => {
         allowNull: false,
     },
     grupoSanguineo: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },  
     contactoEmerg: {
@@ -73,5 +73,6 @@ module.exports = (sequelize) => {
   },
   { 
    timestamps: false 
+   
 });
 };

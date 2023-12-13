@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Estudiante } = require('../models/estudiante');
+const { Estudiante } = require('../config/db');
 
 const createEstudiante = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ const createEstudiante = async (req, res) => {
   };
   const getAllEstudiantes = async (req, res) => {
     try {
-      const estudiantes = await Estudiante.findAll();
+      const estudiantes = await Estudiante.findAll({ where: { state: true } });
       res.status(200).json(estudiantes);
     } catch (error) {
       console.error(error);
@@ -25,49 +25,49 @@ const createEstudiante = async (req, res) => {
     const { id } = req.params;
     try {
       const estudiante = await Estudiante.findByPk(id);
-      if (!estudiante) {
-        return res.status(404).json({ error: 'No se encontro Estudiante' });
+      if (!estudiante || !estudiante.state) {
+           return res.status(404).json({ error: "Estudiante not found" })
       }
-      res.status(200).json(estudiante);
-    } catch (error) {
+      return res.status(200).json(estudiante);
+ } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  };
-
+      return res.status(500).json({ error: "Internal Server Error" });
+ }
+};
+      
   
   const updateEstudianteById = async (req, res) => {
     const { id } = req.params;
     try {
-      const [updatedRowsCount, updatedEstudiantes] = await Estudiante.update(req.body, {
-        where: { idEstudiante: id },
-        returning: true,
-      });
-      if (updatedRowsCount === 0) {
-        return res.status(404).json({ error: 'No se encontro Estudiante' });
+      const estudiante = await Estudiante.findByPk(id);
+      if (!estudiante || !estudiante.state) {
+           return res.status(404).json({ error: "Estudiante not found" })
       }
-      res.status(200).json(updatedEstudiantes[0]);
-    } catch (error) {
+      await Estudiante.update(req.body, { where: { id } });
+      const updateEstudiante = await Estudiante.findByPk(id);
+      return res.status(200).json(updateEstudiante);
+ } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  };
+      return res.status(500).json({ error: "Internal Server Error" });
+ }
+};
+      
   
   const deleteEstudianteById = async (req, res) => {
     const { id } = req.params;
     try {
-      const deletedRowCount = await Estudiante.destroy({
-        where: { idEstudiante: id },
-      });
-      if (deletedRowCount === 0) {
-        return res.status(404).json({ error: 'No se encontro Estudiante' });
-      }
-      res.status(204).send();
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  };
+      const estudiante = await Estudiante.findByPk(id);
+          if (!estudiante || !estudiante.state) {
+               return res.status(404).json({ error: "Estudiante not found" })
+          }
+          await Estudiante.update({ state: false }, { where: { id } });
+          return res.status(200).json({ message: "Estudiante deleted successfully" });
+     } catch (error) {
+          console.error(error);
+          return res.status(500).json({ error: "Internal Server Error" });
+     }
+};
+      
   
   module.exports = {
     createEstudiante,
