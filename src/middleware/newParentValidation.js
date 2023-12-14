@@ -1,59 +1,33 @@
+const Joi = require("joi");
+
 const newParentValidation = (req, res, next) => {
-  const {
-    idDoc,
-    name,
-    lastName,
-    educationLevel,
-    profession,
-    address,
-    jobAddress,
-    telephone,
-    jobTelephone,
-    contactCellphone,
-    email,
-  } = req.body;
+  const schema = Joi.object({
+    idDoc: Joi.string().required().label("ID Document"),
+    name: Joi.string().required().label("First Name"),
+    lastName: Joi.string().required().label("Last Name"),
+    educationLevel: Joi.string().required().label("Education Level"),
+    profession: Joi.string().required().label("Profession"),
+    address: Joi.string().required().label("Address"),
+    jobAddress: Joi.string().required().label("Job Address"),
+    telephone: Joi.string().required().label("Home Telephone"),
+    jobTelephone: Joi.string().required().label("Work Telephone"),
+    contactCellphone: Joi.string().required().label("Contact Cell Phone"),
+    email: Joi.string().required().label("Email").email(),
+  });
 
-  const missingFields = [];
+  const { error, value } = schema.validate(req.body, {
+    abortEarly: false, // Para recopilar todos los errores, no solo el primero
+    stripUnknown: true, // Elimina claves adicionales no definidas en el esquema
+  });
 
-  if (!idDoc) {
-    missingFields.push("ID Document");
-  }
-  if (!name) {
-    missingFields.push("First Name");
-  }
-  if (!lastName) {
-    missingFields.push("Last Name");
-  }
-  if (!educationLevel) {
-    missingFields.push("Education Level");
-  }
-  if (!profession) {
-    missingFields.push("Profession");
-  }
-  if (!address) {
-    missingFields.push("Address");
-  }
-  if (!jobAddress) {
-    missingFields.push("Job Address");
-  }
-  if (!telephone) {
-    missingFields.push("Home Telephone");
-  }
-  if (!jobTelephone) {
-    missingFields.push("Work Telephone");
-  }
-  if (!contactCellphone) {
-    missingFields.push("Contact Cell Phone");
-  }
-  if (!email) {
-    missingFields.push("Email");
-  }
-
-  if (missingFields.length > 0) {
+  if (error) {
+    const missingFields = error.details.map((detail) => detail.context.label);
     return res.status(400).json({
       error: `Missing fields: ${missingFields.join(", ")}`,
     });
   }
+
+  req.validatedData = value; // Almacena los datos validados en el objeto de solicitud para su uso posterior
   next();
 };
 
