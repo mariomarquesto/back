@@ -34,7 +34,8 @@ let capsEntries = entries.map((entry) => [
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User } = sequelize.models;
+const { User, Grade } = sequelize.models;
+
 
 
 module.exports = {
