@@ -7,9 +7,11 @@ const {
      deleteUserById
 } = require("../controllers/userController");
 
+const userValidationMiddleware = require("../middleware/userValidation")
+
 const router = Router();
 
-router.post("/user", createUser);
+router.post("/user", userValidationMiddleware, createUser);
 router.get("/user", getAllUsers);
 router.get("/user/:id", getUserById);
 router.put("/user/:id", updateUserById);
