@@ -4,45 +4,38 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/usertest`,
-  {
-    logging: false,
-    native: false,
-  }
+     `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/usertest`,
+     {
+          logging: false,
+          native: false,
+     }
 );
 
 const basename = path.basename(__filename);
 const modelDefiners = [];
 
 fs.readdirSync(path.join(__dirname, "../models"))
-  .filter(
-    (file) =>
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-  )
-  .forEach((file) => {
-    modelDefiners.push(require(path.join(__dirname, "../models", file)));
-  });
+     .filter(
+          (file) =>
+               file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
+     )
+     .forEach((file) => {
+          modelDefiners.push(require(path.join(__dirname, "../models", file)));
+     });
 
 modelDefiners.forEach((model) => model(sequelize));
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
-  entry[0][0].toUpperCase() + entry[0].slice(1),
-  entry[1],
+     entry[0][0].toUpperCase() + entry[0].slice(1),
+     entry[1],
 ]);
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-const { User, Grade } = sequelize.models;
 
-=======
-const { User, Parents, estudiante } = sequelize.models;
->>>>>>> 14fecebcaa1d9b83769827adf012e4b1eb292634
-=======
-const { User, Parents, Estudiante } = sequelize.models;
->>>>>>> 054c4b46c40ba661ac9c7a98253e5cfad204ba15
+const { User, Parents, Estudiante, Grade } = sequelize.models;
+
 
 User.belongsToMany(Parents, { through: "userParent" });
 Parents.belongsToMany(User, { through: "userParent" });
@@ -54,6 +47,6 @@ Estudiante.belongsToMany(Parents, { through: "parentEstudiante" });
 //estudiante.belongsToMany(Parents, { through: "parentEstudiante", as: "parents", foreignKey: "estudianteId" })
 
 module.exports = {
-  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+     conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
