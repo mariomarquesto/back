@@ -3,7 +3,6 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
-
 const sequelize = new Sequelize(
      `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/usertest`,
      {
@@ -34,9 +33,19 @@ let capsEntries = entries.map((entry) => [
 
 sequelize.models = Object.fromEntries(capsEntries);
 
+<<<<<<< HEAD
 const { User, Grade } = sequelize.models;
 
+=======
+const { User, Parents, estudiante } = sequelize.models;
+>>>>>>> 14fecebcaa1d9b83769827adf012e4b1eb292634
 
+User.belongsToMany(Parents, { through: "userParent" });
+Parents.belongsToMany(User, { through: "userParent" });
+
+
+//Parents.belongsToMany(estudiante, { through: "parentEstudiante", as: "estudiantes", foreignKey: "userId" })
+//estudiante.belongsToMany(Parents, { through: "parentEstudiante", as: "parents", foreignKey: "estudianteId" })
 
 module.exports = {
      ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
