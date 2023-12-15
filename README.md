@@ -152,151 +152,6 @@ Respuesta Esperada:
   "message": "Usuario eliminado exitosamente"
 }
 ```
-## Rutas del Modelo Estudiante ##
-
-### 1. Crear un Estudiante ###
-Ruta: POST http://localhost:3000/estudiantes
-Descripción: Crea un nuevo estudiante en la base de datos.
-Cuerpo (JSON):
-```
-{
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-#### Respuesta Esperada (Ejemplo): ####
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-
-### 2. Obtener Todos los Estudiantes ###
-Ruta: GET http://localhost:3000/estudiantes
-Descripción: Obtiene todos los estudaintes activos en la base de datos.
-Respuesta Esperada (Ejemplo):
-```
-[
-  {
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-},
-  // Otros usuarios...
-]
-```
-
-### 3. Obtener Estudiante por ID ###
-Ruta: GET http://localhost:3000/estudiantes/:id
-Descripción: Obtiene los detalles de un estudiante específico por su ID.
-Respuesta Esperada (Ejemplo):
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-### 4. Actualizar Estudiante por ID ###
-Ruta: PUT http://localhost:3000/estudiantes/:id
-Descripción: Actualiza los detalles de un estudiante específico por su ID.
-Cuerpo (JSON): (Enviar solo los campos que deseas actualizar)
-```
-{
-   "nombres": "andres jose",
-}
-```
-
-#### Respuesta Esperada (Ejemplo): ####
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres jose",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-
-### 5. Eliminar Estudiante por ID (Eliminación Lógica) ###
-Ruta: DELETE http://localhost:3000/estudiantes/:id
-Descripción: Realiza una eliminación lógica (inactiva) de un estudiante por su ID.
-Respuesta Esperada:
-
-```
-{
-  "message": "Estudiante eliminado exitosamente"
-}
-```
 
 ## Rutas del Modelo Parents
 
@@ -319,7 +174,8 @@ Por body:
     "jobTelephone":"987654321-1",
     "contactCellphone":"911-1",
     "email":"test-1@gmail.com",
-    "tutor":"false"
+    "tutor":"false",
+    "userId":"12345-abcde-67890-fghij" // <<-- id de User a relacionar
 }
 ```
 
@@ -339,6 +195,7 @@ Por body:
     "contactCellphone":"911-2",
     "email":"test-2@gmail.com",
     "tutor":"true"
+    "userId":"12345-abcde-67890-fghij" // <<-- id de User a relacionar
 }
 ```
 
@@ -517,6 +374,7 @@ Cuerpo (JSON):
   "fotoPerfil": "url",
   "fotoDocumento": "url",
   "state": true
+  "parentId":"47496be7-8eb3-4e12-b39a-32a646740a23"
 }
 ```
 
