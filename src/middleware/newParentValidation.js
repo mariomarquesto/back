@@ -2,16 +2,28 @@ const Joi = require("joi");
 
 const newParentValidation = (req, res, next) => {
   const schema = Joi.object({
-    idDoc: Joi.string().required().label("ID Document"),
+    idDoc: Joi.string()
+      .pattern(/^[0-9]{7,15}$/)
+      .required()
+      .label("ID Document"),
     name: Joi.string().required().label("First Name"),
     lastName: Joi.string().required().label("Last Name"),
     educationLevel: Joi.string().required().label("Education Level"),
     profession: Joi.string().required().label("Profession"),
     address: Joi.string().required().label("Address"),
     jobAddress: Joi.string().required().label("Job Address"),
-    telephone: Joi.string().required().label("Home Telephone"),
-    jobTelephone: Joi.string().required().label("Work Telephone"),
-    contactCellphone: Joi.string().required().label("Contact Cell Phone"),
+    telephone: Joi.string()
+      .pattern(/^[0-9]{7,15}$/)
+      .required()
+      .label("Home Telephone"),
+    jobTelephone: Joi.string()
+      .pattern(/^[0-9]{7,15}$/)
+      .required()
+      .label("Work Telephone"),
+    contactCellphone: Joi.string()
+      .pattern(/^[0-9]{7,15}$/)
+      .required()
+      .label("Contact Cell Phone"),
     email: Joi.string().required().label("Email").email(),
   });
 
@@ -23,7 +35,7 @@ const newParentValidation = (req, res, next) => {
   if (error) {
     const missingFields = error.details.map((detail) => detail.context.label);
     return res.status(400).json({
-      error: `Missing fields: ${missingFields.join(", ")}`,
+      error: `Missing or Invalid field(s): ${missingFields.join(", ")}`,
     });
   }
 
