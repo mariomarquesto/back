@@ -1,11 +1,11 @@
 const Joi = require('@hapi/joi');
 
 const estudianteSchema = Joi.object({
-  idDocumento: Joi.number().required(),
-  nombres: Joi.string().max(150).required(),
-  apellidoPat: Joi.string().max(50).required(),
-  apellidoMat: Joi.string().max(50).required(),
-  Nacionalidad: Joi.string().max(100).required(),
+  idDocumento: Joi.string().pattern(/^[0-9]{7,15}$/).required().label("ID Documento"),
+  nombres: Joi.string().max(150).required().label("Nombres"),
+  apellidoPat: Joi.string().max(50).required().label("Apellido Paterno"),
+  apellidoMat: Joi.string().max(50).required().label("Apellido Materno"),
+  Nacionalidad: Joi.string().max(100).required().label("Nacionalidad"),
   fechNac: Joi.date().max('now').required(),
   sexo: Joi.string().valid('M', 'F').required(),
   peso: Joi.number().positive().required(),
