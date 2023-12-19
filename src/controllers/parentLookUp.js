@@ -17,10 +17,8 @@ const getParentIdsByUserId = async (req, res) => {
           const parentIds = userParents.Parents.map(parent => parent.id);
           // Look up the Parents table with the extracted Parents ids
           const parentDetails = await Parents.findAll({
-               where: {
-                    id: parentIds,
-               },
-               attributes: ["id", "name", "lastName", "educationLevel", "profession", "address", "jobAddress", "telephone", "jobTelephone", "contactCellphone", "email", "tutor", "state"],
+               where: { id: parentIds },
+               attributes: ["id"],
           });
           res.status(200).json({ parentDetails });
      } catch (error) {
