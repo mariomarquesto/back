@@ -70,6 +70,11 @@ async function loadDataToDatabase() {
         defaults: userData,
       });
 
+      console.log(
+        created ? "Usuario creado:" : "Usuario encontrado:",
+        user.toJSON()
+      );
+
       const parentRelated = parents.filter(
         (parent) => parent.userId === userData.id
       );
@@ -80,7 +85,14 @@ async function loadDataToDatabase() {
             where: { id: parentData.id },
             defaults: parentData,
           });
+
+          console.log(
+            created ? "Padre creado:" : "Padre encontrado:",
+            parent.toJSON()
+          );
+
           await user.addParents(parent);
+          console.log("Padre asociado al usuario:", parent.id);
 
           // Encontrar estudiantes relacionados con este padre
           const studentsRelatedToParent = students.filter(
@@ -93,20 +105,30 @@ async function loadDataToDatabase() {
                 where: { id: studentData.id },
                 defaults: studentData,
               });
+
+              console.log(
+                studentCreated
+                  ? "Estudiante creado:"
+                  : "Estudiante encontrado:",
+                student.toJSON()
+              );
+
               await parent.addEstudiante(student);
+              console.log("Estudiante asociado al padre:", student.id);
             } catch (error) {
-              return { error: error.message };
+              console.error("Error al cargar estudiante:", error);
             }
           }
         } catch (error) {
-          return { error: error.message };
+          console.error("Error al cargar padre:", error);
         }
       }
     } catch (error) {
-      return { error: error.message };
+      console.error("Error al cargar usuario:", error);
     }
   }
 }
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
