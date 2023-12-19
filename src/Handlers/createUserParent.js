@@ -5,6 +5,7 @@ const {
 const newParentHandler = async (req, res) => {
   const {
     idDoc,
+    fotoDocumento,
     name,
     lastName,
     educationLevel,
@@ -21,6 +22,7 @@ const newParentHandler = async (req, res) => {
   try {
     const newUserParent = await createNewUserParent({
       idDoc,
+      fotoDocumento,
       name,
       lastName,
       educationLevel,
