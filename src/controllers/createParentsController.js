@@ -2,6 +2,7 @@ const { Parents } = require("../config/db");
 
 const createNewUserParent = async ({
   idDoc,
+  fotoDocumento,
   name,
   lastName,
   educationLevel,
@@ -16,6 +17,7 @@ const createNewUserParent = async ({
 }) => {
   const newUserParent = await Parents.create({
     idDoc,
+    fotoDocumento,
     name,
     lastName,
     educationLevel,

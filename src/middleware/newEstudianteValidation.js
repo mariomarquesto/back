@@ -1,4 +1,5 @@
 const Joi = require('@hapi/joi');
+const cloudinaryUrl = Joi.string().regex(/^https:\/\/res.cloudinary.com\/your_cloud_name\/image\/upload\/.*$/);
 
 const estudianteSchema = Joi.object({
   idDocumento: Joi.string().pattern(/^[0-9]{7,15}$/).required().label("ID Documento"),
@@ -13,8 +14,8 @@ const estudianteSchema = Joi.object({
   alergias: Joi.string().max(300).required(),
   grupoSanguineo: Joi.string().required(),
   contactoEmerg: Joi.number().required(),
-  fotoPerfil: Joi.string().uri({ scheme: ['http', 'https'] }).required(),
-  fotoDocumento: Joi.string().uri({ scheme: ['http', 'https'] }).required(),
+  fotoPerfil: Joi.string().uri({ scheme: ['http', 'https'] }).required().concat(cloudinaryUrl),
+  fotoDocumento: Joi.string().uri({ scheme: ['http', 'https'] }).required().concat(cloudinaryUrl),
   state: Joi.boolean().allow(null),
 });
 
