@@ -6,7 +6,11 @@ const {
      updateUserById,
      deleteUserById
 } = require("../controllers/userController");
+
+// Auth  ---------
 const { loginUser } = require("../controllers/Auth");
+const { authenticateToken } = require("../controllers/authJWTCheck")
+//   -----------------
 
 const userValidationMiddleware = require("../middleware/userValidation")
 
@@ -18,6 +22,9 @@ router.get("/user/:id", getUserById);
 router.put("/user/:id", updateUserById);
 router.put("/userDel/:id", deleteUserById); // Use router.put for logical deletion
 
+// Auth  ---------
 router.post("/login", loginUser);
+router.get('/authenticate', authenticateToken);
+//   -----------------
 
 module.exports = router;
