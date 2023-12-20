@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
                allowNull: false,
                unique: true,
           },
+          fotoDocumento: {
+               type: DataTypes.STRING,
+               allowNull: false,
+          },
           name: {
                type: DataTypes.STRING,
                allowNull: false,
