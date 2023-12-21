@@ -54,7 +54,6 @@ Cuerpo (JSON):
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Parents",
   "nombre": "Nombre",
@@ -76,7 +75,6 @@ Respuesta Esperada (Ejemplo):
 [
   {
     "id": "12345-abcde-67890-fghij",
-    "username": "nombre_usuario",
     "email": "correo@dominio.com",
     "type": "Parents",
     "nombre": "Nombre",
@@ -99,7 +97,6 @@ Respuesta Esperada (Ejemplo):
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Parents",
   "nombre": "Nombre",
@@ -129,7 +126,6 @@ Cuerpo (JSON): (Enviar solo los campos que deseas actualizar)
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Admin",
   "nombre": "Nombre",
