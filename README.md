@@ -494,3 +494,188 @@ Respuesta Esperada:
 }
 ```
 
+## Rutas del Modelo Admin
+
+### 1. Obtener padres activos
+
+GET a: http://localhost:3001/admin/parents-Active
+
+#### Respuesta Esperada ✅
+
+```
+[
+{
+  "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
+  "state": true,
+  "idDoc":"12345678-1",
+  "name":"name-1",
+  "lastName":"lastname-1",
+  "educationLevel":"high school-1",
+  "profession":"worker-1",
+  "address":"house addres 123-1",
+  "jobAddress":"job address 123-1",
+  "telephone":"123456789-1",
+  "jobTelephone":"987654321-1",
+  "contactCellphone":"911-1",
+  "email":"test-1@gmail.com",
+  "tutor":"false"
+  "validate": true,❗
+  "updatedAt": "2023-12-12T23:01:25.193Z",
+  "createdAt": "2023-12-12T23:01:25.193Z"
+},
+{
+  "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
+  "state": true,
+  "idDoc":"12345678-1",
+  "name":"name-1",
+  "lastName":"lastname-1",
+  "educationLevel":"high school-1",
+  "profession":"worker-1",
+  "address":"house addres 123-1",
+  "jobAddress":"job address 123-1",
+  "telephone":"123456789-1",
+  "jobTelephone":"987654321-1",
+  "contactCellphone":"911-1",
+  "email":"test-1@gmail.com",
+  "tutor":"false"
+  "validate": true,❗
+  "updatedAt": "2023-12-12T23:01:25.193Z",
+  "createdAt": "2023-12-12T23:01:25.193Z"
+}
+]
+```
+
+### 2. Obtener padres Pendientes de aprobacion.
+
+GET a : localhost:3001/admin/parents-Pending
+
+#### Respuesta Esperada ✅
+
+```
+[
+  {
+    "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
+    "idDoc": "12345678",
+    "name": "name1",
+    "lastName": "lastname1",
+    "educationLevel": "high school",
+    "profession": "worker",
+    "address": "house addres 123",
+    "jobAddress": "jobaddress 123",
+    "telephone": "123456789",
+    "jobTelephone": "987654321",
+    "contactCellphone": "911",
+    "email": "test@gmail.com",
+    "tutor": false,
+    "validate": false,❗
+    "state": true,
+    "createdAt": "2023-12-12T23:01:25.193Z",
+    "updatedAt": "2023-12-12T23:01:25.193Z"
+  },
+  {
+    "id": "75dc8813-2292-4965-b429-f27e2ea814bd",
+    "idDoc": "1234567",
+    "name": "name",
+    "lastName": "lastname",
+    "educationLevel": "high school",
+    "profession": "worker",
+    "address": "house addres 123",
+    "jobAddress": "jobaddress 123",
+    "telephone": "12345678",
+    "jobTelephone": "987654321",
+    "contactCellphone": "911",
+    "email": "test2@gmail.com",
+    "tutor": false,
+    "validate": false,❗
+    "state": true,
+    "createdAt": "2023-12-12T23:03:15.276Z",
+    "updatedAt": "2023-12-12T23:03:15.276Z"
+  }
+]
+```
+
+### 3. Obtener detalle de un padre por su ID
+
+GET a localhost:3001/admin/parentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "id": "332379ab-ed62-4ce6-9ef4-0634bacb022e",
+  "idDoc": "12345678",
+  "name": "name1",
+  "lastName": "lastname1",
+  "educationLevel": "high school",
+  "profession": "worker",
+  "address": "house addres 123",
+  "jobAddress": "job address 123",
+  "telephone": "123456789",
+  "jobTelephone": "987654321",
+  "contactCellphone": "911",
+  "email": "test@gmail.com",
+  "tutor": false,
+  "state": true,
+  "createdAt": "2023-12-13T01:26:33.241Z",
+  "updatedAt": "2023-12-13T01:26:33.241Z"
+}
+```
+
+### 4. Aprobar datos del padre por ID:
+
+PUT a: localhost:3001/admin/parentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  Parent approved successfully
+}
+```
+
+🔸Se actualizara su propiedad validate a true.
+
+### 5. Obtener estudiantes activos
+
+GET a: http://localhost:3001/admin/students-Active
+
+#### Respuesta Esperada ✅
+
+```
+
+```
+
+### 6. Obtener estudiantes Pendientes de aprobacion.
+
+GET a : localhost:3001/admin/students-Pending
+
+#### Respuesta Esperada ✅
+
+```
+
+```
+
+### 7. Obtener detalle de un estudiante por su ID
+
+GET a localhost:3001/admin/studentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+
+```
+
+### 8. Aprobar datos del estudiante por ID:
+
+PUT a: localhost:3001/admin/studentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  Student approved successfully
+}
+```
+
+🔸Se actualizara su propiedad validate a true.
+
