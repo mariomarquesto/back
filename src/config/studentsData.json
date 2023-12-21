@@ -16,6 +16,7 @@
     "contactoEmerg": 147838896,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -35,6 +36,7 @@
     "contactoEmerg": 136750238,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -54,6 +56,7 @@
     "contactoEmerg": 311476743,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -73,6 +76,7 @@
     "contactoEmerg": 967384331,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -92,6 +96,7 @@
     "contactoEmerg": 855468507,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -111,6 +116,7 @@
     "contactoEmerg": 326793241,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -130,6 +136,7 @@
     "contactoEmerg": 756344031,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -149,6 +156,7 @@
     "contactoEmerg": 989104243,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -168,6 +176,7 @@
     "contactoEmerg": 893204431,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -187,6 +196,7 @@
     "contactoEmerg": 676024262,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -206,6 +216,7 @@
     "contactoEmerg": 497925508,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -225,6 +236,7 @@
     "contactoEmerg": 952620351,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -244,6 +256,7 @@
     "contactoEmerg": 681413755,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
     "state": true
   },
   {
@@ -263,6 +276,7 @@
     "contactoEmerg": 509816360,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -282,6 +296,7 @@
     "contactoEmerg": 371166153,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -301,6 +316,7 @@
     "contactoEmerg": 699128094,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -320,6 +336,7 @@
     "contactoEmerg": 120949021,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -339,6 +356,7 @@
     "contactoEmerg": 134375529,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   },
   {
@@ -358,6 +376,7 @@
     "contactoEmerg": 134461063,
     "fotoPerfil": "ProfilePhotoURL",
     "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
     "state": true
   }
 ]
