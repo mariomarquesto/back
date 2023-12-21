@@ -504,44 +504,45 @@ GET a: http://localhost:3001/admin/parents-Active
 
 ```
 [
-{
-  "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
-  "state": true,
-  "idDoc":"12345678-1",
-  "name":"name-1",
-  "lastName":"lastname-1",
-  "educationLevel":"high school-1",
-  "profession":"worker-1",
-  "address":"house addres 123-1",
-  "jobAddress":"job address 123-1",
-  "telephone":"123456789-1",
-  "jobTelephone":"987654321-1",
-  "contactCellphone":"911-1",
-  "email":"test-1@gmail.com",
-  "tutor":"false"
-  "validate": true,❗
-  "updatedAt": "2023-12-12T23:01:25.193Z",
-  "createdAt": "2023-12-12T23:01:25.193Z"
-},
-{
-  "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
-  "state": true,
-  "idDoc":"12345678-1",
-  "name":"name-1",
-  "lastName":"lastname-1",
-  "educationLevel":"high school-1",
-  "profession":"worker-1",
-  "address":"house addres 123-1",
-  "jobAddress":"job address 123-1",
-  "telephone":"123456789-1",
-  "jobTelephone":"987654321-1",
-  "contactCellphone":"911-1",
-  "email":"test-1@gmail.com",
-  "tutor":"false"
-  "validate": true,❗
-  "updatedAt": "2023-12-12T23:01:25.193Z",
-  "createdAt": "2023-12-12T23:01:25.193Z"
-}
+  {
+    "id": "9258460c-90b4-4848-8fa9-fd8fe45efe16",
+    "idDocumento": 440485387,
+    "nombres": "Frank68",
+    "apellidoPat": "Pérez",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Canadian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 70,
+    "estatura": 149,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 147838896,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {
+    "id": "3bdecce2-5bb3-46be-9ab2-3ec17691943a",
+    "idDocumento": 786372166,
+    "nombres": "Hannah41",
+    "apellidoPat": "García",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Brazilian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 51,
+    "estatura": 132,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 967384331,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {...❗resto que tengan validate: true❗...}
 ]
 ```
 
@@ -554,42 +555,27 @@ GET a : localhost:3001/admin/parents-Pending
 ```
 [
   {
-    "id": "47496be7-8eb3-4e12-b39a-32a646740a23",
-    "idDoc": "12345678",
-    "name": "name1",
-    "lastName": "lastname1",
-    "educationLevel": "high school",
-    "profession": "worker",
-    "address": "house addres 123",
-    "jobAddress": "jobaddress 123",
+    "id": "3f8c9e38-e304-4c92-9f1e-0718d31015cd",
+    "idDoc": "356945668",
+    "fotoDocumento": "fotoDocumento",
+    "name": "Emma53",
+    "lastName": "López85",
+    "educationLevel": "High-School",
+    "profession": "Unknow",
+    "address": "Address",
+    "jobAddress": "JobAddress",
     "telephone": "123456789",
     "jobTelephone": "987654321",
-    "contactCellphone": "911",
-    "email": "test@gmail.com",
-    "tutor": false,
-    "validate": false,❗
+    "contactCellphone": "9876543210",
+    "email": "emma70@example.com",
+    "tutor": true,
+    "validate": false,
     "state": true,
-    "createdAt": "2023-12-12T23:01:25.193Z",
-    "updatedAt": "2023-12-12T23:01:25.193Z"
+    "createdAt": "2023-12-21T18:22:01.818Z",
+    "updatedAt": "2023-12-21T18:22:01.818Z"
   },
   {
-    "id": "75dc8813-2292-4965-b429-f27e2ea814bd",
-    "idDoc": "1234567",
-    "name": "name",
-    "lastName": "lastname",
-    "educationLevel": "high school",
-    "profession": "worker",
-    "address": "house addres 123",
-    "jobAddress": "jobaddress 123",
-    "telephone": "12345678",
-    "jobTelephone": "987654321",
-    "contactCellphone": "911",
-    "email": "test2@gmail.com",
-    "tutor": false,
-    "validate": false,❗
-    "state": true,
-    "createdAt": "2023-12-12T23:03:15.276Z",
-    "updatedAt": "2023-12-12T23:03:15.276Z"
+...❗resto que tengan validate: false❗...
   }
 ]
 ```
@@ -602,22 +588,24 @@ GET a localhost:3001/admin/parentDetail/"ID OBJETIVO"
 
 ```
 {
-  "id": "332379ab-ed62-4ce6-9ef4-0634bacb022e",
-  "idDoc": "12345678",
-  "name": "name1",
-  "lastName": "lastname1",
-  "educationLevel": "high school",
-  "profession": "worker",
-  "address": "house addres 123",
-  "jobAddress": "job address 123",
+  "id": "f1f5c68c-2489-4e96-8bfb-fc9eb8f6dc9c",
+  "idDoc": "396364208",
+  "fotoDocumento": "fotoDocumento",
+  "name": "Emma92",
+  "lastName": "Sánchez40",
+  "educationLevel": "High-School",
+  "profession": "Unknow",
+  "address": "Address",
+  "jobAddress": "JobAddress",
   "telephone": "123456789",
   "jobTelephone": "987654321",
-  "contactCellphone": "911",
-  "email": "test@gmail.com",
-  "tutor": false,
+  "contactCellphone": "9876543210",
+  "email": "hannah31@example.com",
+  "tutor": true,
+  "validate": true,
   "state": true,
-  "createdAt": "2023-12-13T01:26:33.241Z",
-  "updatedAt": "2023-12-13T01:26:33.241Z"
+  "createdAt": "2023-12-21T18:22:01.644Z",
+  "updatedAt": "2023-12-21T18:22:01.644Z"
 }
 ```
 
@@ -629,7 +617,7 @@ PUT a: localhost:3001/admin/parentDetail/"ID OBJETIVO"
 
 ```
 {
-  Parent approved successfully
+  "message": "Parent approved successfully"
 }
 ```
 
@@ -642,7 +630,30 @@ GET a: http://localhost:3001/admin/students-Active
 #### Respuesta Esperada ✅
 
 ```
-
+[
+  {
+    "id": "9258460c-90b4-4848-8fa9-fd8fe45efe16",
+    "idDocumento": 440485387,
+    "nombres": "Frank68",
+    "apellidoPat": "Pérez",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Canadian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 70,
+    "estatura": 149,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 147838896,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {
+...❗resto que tengan validate: TRUE❗...
+  }
+]
 ```
 
 ### 6. Obtener estudiantes Pendientes de aprobacion.
@@ -652,7 +663,30 @@ GET a : localhost:3001/admin/students-Pending
 #### Respuesta Esperada ✅
 
 ```
-
+[
+  {
+    "id": "11d3d019-c05a-4054-84cb-a5a0860486b0",
+    "idDocumento": 469231307,
+    "nombres": "David22",
+    "apellidoPat": "Martínez",
+    "apellidoMat": "Pérez",
+    "Nacionalidad": "Australian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 91,
+    "estatura": 188,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 136750238,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
+    "state": true
+  },
+  {
+...❗resto que tengan validate: FALSE❗...
+  }
+]
 ```
 
 ### 7. Obtener detalle de un estudiante por su ID
@@ -662,6 +696,25 @@ GET a localhost:3001/admin/studentDetail/"ID OBJETIVO"
 #### Respuesta Esperada ✅
 
 ```
+{
+  "id": "11d3d019-c05a-4054-84cb-a5a0860486b0",
+  "idDocumento": 469231307,
+  "nombres": "David22",
+  "apellidoPat": "Martínez",
+  "apellidoMat": "Pérez",
+  "Nacionalidad": "Australian",
+  "fechNac": "2000-01-01T00:00:00.000Z",
+  "sexo": "Gender",
+  "peso": 91,
+  "estatura": 188,
+  "alergias": "Allergies",
+  "grupoSanguineo": "BloodGroup",
+  "contactoEmerg": 136750238,
+  "fotoPerfil": "ProfilePhotoURL",
+  "fotoDocumento": "DocumentPhotoURL",
+  "validate": false,
+  "state": true
+}
 
 ```
 
@@ -673,8 +726,37 @@ PUT a: localhost:3001/admin/studentDetail/"ID OBJETIVO"
 
 ```
 {
-  Student approved successfully
+  "message": Student approved successfully
 }
+```
+
+🔸Se actualizara su propiedad validate a true.
+
+### 8. Ruta admin:
+
+GET a: localhost:3001/admin/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "id": "192820e3-a3bc-44f1-bbfd-99da823d0200",
+  "email": "hannah81@example.com",
+  "password": "password123",
+  "type": "Parents",
+  "nombre": "Alice",
+  "apellidoPaterno": "Pérez",
+  "apellidoMaterno": "González",
+  "complete": true,
+  "validate": false,
+  "state": true,
+  "createdAt": "2023-12-21T18:22:01.602Z",
+  "updatedAt": "2023-12-21T18:22:01.602Z"
+}
+```
+
+Ruta no necesariamente a utilizar en algo, podria ser una vista inicial del administrador, devuelve sus datos mientras tanto
+
 ```
 
 🔸Se actualizara su propiedad validate a true.
