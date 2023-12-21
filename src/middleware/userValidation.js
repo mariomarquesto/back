@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
 const userValidationMiddleware = (req, res, next) => {
      const schema = Joi.object({

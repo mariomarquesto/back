@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
                allowNull: false,
                unique: true,
           },
+          fotoDocumento: {
+               type: DataTypes.STRING,
+               allowNull: false,
+          },
           name: {
                type: DataTypes.STRING,
                allowNull: false,
@@ -56,6 +60,10 @@ module.exports = (sequelize) => {
                unique: true,
           },
           tutor: {
+               type: DataTypes.BOOLEAN,
+               defaultValue: false,
+          },
+          validate: {
                type: DataTypes.BOOLEAN,
                defaultValue: false,
           },
