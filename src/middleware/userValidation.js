@@ -3,9 +3,9 @@ const Joi = require("joi");
 const userValidationMiddleware = (req, res, next) => {
      const schema = Joi.object({
           email: Joi.string().email().required(),
-          password: Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{16,255}$/).required()
+          password: Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[d@$!%*?&-_.])[A-Za-z\d@$!%*?&-_.]{8,16}$/).required()
                .messages({
-                    'string.pattern.base': 'Password must be 16-255 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character.',
+                    'string.pattern.base': 'Password must be 8-16 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character.',
                }),
           type: Joi.string().valid('Parents', 'Admin', 'SuperAdmin').required(),
           nombre: Joi.string().pattern(/^[A-Za-z\s]{1,50}$/).required()
