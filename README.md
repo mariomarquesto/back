@@ -54,7 +54,6 @@ Cuerpo (JSON):
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Parents",
   "nombre": "Nombre",
@@ -76,7 +75,6 @@ Respuesta Esperada (Ejemplo):
 [
   {
     "id": "12345-abcde-67890-fghij",
-    "username": "nombre_usuario",
     "email": "correo@dominio.com",
     "type": "Parents",
     "nombre": "Nombre",
@@ -99,7 +97,6 @@ Respuesta Esperada (Ejemplo):
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Parents",
   "nombre": "Nombre",
@@ -129,7 +126,6 @@ Cuerpo (JSON): (Enviar solo los campos que deseas actualizar)
 ```
 {
   "id": "12345-abcde-67890-fghij",
-  "username": "nombre_usuario",
   "email": "correo@dominio.com",
   "type": "Admin",
   "nombre": "Nombre",
@@ -150,151 +146,6 @@ Respuesta Esperada:
 ```
 {
   "message": "Usuario eliminado exitosamente"
-}
-```
-## Rutas del Modelo Estudiante ##
-
-### 1. Crear un Estudiante ###
-Ruta: POST http://localhost:3000/estudiantes
-Descripción: Crea un nuevo estudiante en la base de datos.
-Cuerpo (JSON):
-```
-{
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-#### Respuesta Esperada (Ejemplo): ####
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-
-### 2. Obtener Todos los Estudiantes ###
-Ruta: GET http://localhost:3000/estudiantes
-Descripción: Obtiene todos los estudaintes activos en la base de datos.
-Respuesta Esperada (Ejemplo):
-```
-[
-  {
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-},
-  // Otros usuarios...
-]
-```
-
-### 3. Obtener Estudiante por ID ###
-Ruta: GET http://localhost:3000/estudiantes/:id
-Descripción: Obtiene los detalles de un estudiante específico por su ID.
-Respuesta Esperada (Ejemplo):
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres j",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-### 4. Actualizar Estudiante por ID ###
-Ruta: PUT http://localhost:3000/estudiantes/:id
-Descripción: Actualiza los detalles de un estudiante específico por su ID.
-Cuerpo (JSON): (Enviar solo los campos que deseas actualizar)
-```
-{
-   "nombres": "andres jose",
-}
-```
-
-#### Respuesta Esperada (Ejemplo): ####
-```
-{
-  "id": "5c4154ef-2f1a-4946-bbef-fdb23c9f5ece",
-  "idDocumento": 110112,
-  "nombres": "andres jose",
-  "apellidoPat": "caicedo",
-  "apellidoMat": "cabrera",
-  "Nacionalidad": "colombiano",
-  "fechNac": "1990-05-15T00:00:00.000Z",
-  "sexo": "masculino",
-  "peso": 75,
-  "estatura": 175,
-  "alergias": "no",
-  "grupoSanguineo": "b positivo",
-  "contactoEmerg": 6243427,
-  "fotoPerfil": "url",
-  "fotoDocumento": "url",
-  "state": true
-}
-```
-
-
-### 5. Eliminar Estudiante por ID (Eliminación Lógica) ###
-Ruta: DELETE http://localhost:3000/estudiantes/:id
-Descripción: Realiza una eliminación lógica (inactiva) de un estudiante por su ID.
-Respuesta Esperada:
-
-```
-{
-  "message": "Estudiante eliminado exitosamente"
 }
 ```
 
@@ -319,7 +170,8 @@ Por body:
     "jobTelephone":"987654321-1",
     "contactCellphone":"911-1",
     "email":"test-1@gmail.com",
-    "tutor":"false"
+    "tutor":"false",
+    "userId":"12345-abcde-67890-fghij" // <<-- id de User a relacionar
 }
 ```
 
@@ -339,6 +191,7 @@ Por body:
     "contactCellphone":"911-2",
     "email":"test-2@gmail.com",
     "tutor":"true"
+    "userId":"12345-abcde-67890-fghij" // <<-- id de User a relacionar
 }
 ```
 
@@ -517,6 +370,7 @@ Cuerpo (JSON):
   "fotoPerfil": "url",
   "fotoDocumento": "url",
   "state": true
+  "parentId":"47496be7-8eb3-4e12-b39a-32a646740a23"
 }
 ```
 
@@ -639,4 +493,271 @@ Respuesta Esperada:
   "message": "Estudiante eliminado exitosamente"
 }
 ```
+
+## Rutas del Modelo Admin
+
+### 1. Obtener padres activos
+
+GET a: http://localhost:3001/admin/parents-Active
+
+#### Respuesta Esperada ✅
+
+```
+[
+  {
+    "id": "9258460c-90b4-4848-8fa9-fd8fe45efe16",
+    "idDocumento": 440485387,
+    "nombres": "Frank68",
+    "apellidoPat": "Pérez",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Canadian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 70,
+    "estatura": 149,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 147838896,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {
+    "id": "3bdecce2-5bb3-46be-9ab2-3ec17691943a",
+    "idDocumento": 786372166,
+    "nombres": "Hannah41",
+    "apellidoPat": "García",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Brazilian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 51,
+    "estatura": 132,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 967384331,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {...❗resto que tengan validate: true❗...}
+]
+```
+
+### 2. Obtener padres Pendientes de aprobacion.
+
+GET a : localhost:3001/admin/parents-Pending
+
+#### Respuesta Esperada ✅
+
+```
+[
+  {
+    "id": "3f8c9e38-e304-4c92-9f1e-0718d31015cd",
+    "idDoc": "356945668",
+    "fotoDocumento": "fotoDocumento",
+    "name": "Emma53",
+    "lastName": "López85",
+    "educationLevel": "High-School",
+    "profession": "Unknow",
+    "address": "Address",
+    "jobAddress": "JobAddress",
+    "telephone": "123456789",
+    "jobTelephone": "987654321",
+    "contactCellphone": "9876543210",
+    "email": "emma70@example.com",
+    "tutor": true,
+    "validate": false,
+    "state": true,
+    "createdAt": "2023-12-21T18:22:01.818Z",
+    "updatedAt": "2023-12-21T18:22:01.818Z"
+  },
+  {
+...❗resto que tengan validate: false❗...
+  }
+]
+```
+
+### 3. Obtener detalle de un padre por su ID
+
+GET a localhost:3001/admin/parentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "id": "f1f5c68c-2489-4e96-8bfb-fc9eb8f6dc9c",
+  "idDoc": "396364208",
+  "fotoDocumento": "fotoDocumento",
+  "name": "Emma92",
+  "lastName": "Sánchez40",
+  "educationLevel": "High-School",
+  "profession": "Unknow",
+  "address": "Address",
+  "jobAddress": "JobAddress",
+  "telephone": "123456789",
+  "jobTelephone": "987654321",
+  "contactCellphone": "9876543210",
+  "email": "hannah31@example.com",
+  "tutor": true,
+  "validate": true,
+  "state": true,
+  "createdAt": "2023-12-21T18:22:01.644Z",
+  "updatedAt": "2023-12-21T18:22:01.644Z"
+}
+```
+
+### 4. Aprobar datos del padre por ID:
+
+PUT a: localhost:3001/admin/parentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "message": "Parent approved successfully"
+}
+```
+
+🔸Se actualizara su propiedad validate a true.
+
+### 5. Obtener estudiantes activos
+
+GET a: http://localhost:3001/admin/students-Active
+
+#### Respuesta Esperada ✅
+
+```
+[
+  {
+    "id": "9258460c-90b4-4848-8fa9-fd8fe45efe16",
+    "idDocumento": 440485387,
+    "nombres": "Frank68",
+    "apellidoPat": "Pérez",
+    "apellidoMat": "Rodríguez",
+    "Nacionalidad": "Canadian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 70,
+    "estatura": 149,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 147838896,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": true,
+    "state": true
+  },
+  {
+...❗resto que tengan validate: TRUE❗...
+  }
+]
+```
+
+### 6. Obtener estudiantes Pendientes de aprobacion.
+
+GET a : localhost:3001/admin/students-Pending
+
+#### Respuesta Esperada ✅
+
+```
+[
+  {
+    "id": "11d3d019-c05a-4054-84cb-a5a0860486b0",
+    "idDocumento": 469231307,
+    "nombres": "David22",
+    "apellidoPat": "Martínez",
+    "apellidoMat": "Pérez",
+    "Nacionalidad": "Australian",
+    "fechNac": "2000-01-01T00:00:00.000Z",
+    "sexo": "Gender",
+    "peso": 91,
+    "estatura": 188,
+    "alergias": "Allergies",
+    "grupoSanguineo": "BloodGroup",
+    "contactoEmerg": 136750238,
+    "fotoPerfil": "ProfilePhotoURL",
+    "fotoDocumento": "DocumentPhotoURL",
+    "validate": false,
+    "state": true
+  },
+  {
+...❗resto que tengan validate: FALSE❗...
+  }
+]
+```
+
+### 7. Obtener detalle de un estudiante por su ID
+
+GET a localhost:3001/admin/studentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "id": "11d3d019-c05a-4054-84cb-a5a0860486b0",
+  "idDocumento": 469231307,
+  "nombres": "David22",
+  "apellidoPat": "Martínez",
+  "apellidoMat": "Pérez",
+  "Nacionalidad": "Australian",
+  "fechNac": "2000-01-01T00:00:00.000Z",
+  "sexo": "Gender",
+  "peso": 91,
+  "estatura": 188,
+  "alergias": "Allergies",
+  "grupoSanguineo": "BloodGroup",
+  "contactoEmerg": 136750238,
+  "fotoPerfil": "ProfilePhotoURL",
+  "fotoDocumento": "DocumentPhotoURL",
+  "validate": false,
+  "state": true
+}
+
+```
+
+### 8. Aprobar datos del estudiante por ID:
+
+PUT a: localhost:3001/admin/studentDetail/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "message": Student approved successfully
+}
+```
+
+🔸Se actualizara su propiedad validate a true.
+
+### 8. Ruta admin:
+
+GET a: localhost:3001/admin/"ID OBJETIVO"
+
+#### Respuesta Esperada ✅
+
+```
+{
+  "id": "192820e3-a3bc-44f1-bbfd-99da823d0200",
+  "email": "hannah81@example.com",
+  "password": "password123",
+  "type": "Parents",
+  "nombre": "Alice",
+  "apellidoPaterno": "Pérez",
+  "apellidoMaterno": "González",
+  "complete": true,
+  "validate": false,
+  "state": true,
+  "createdAt": "2023-12-21T18:22:01.602Z",
+  "updatedAt": "2023-12-21T18:22:01.602Z"
+}
+```
+
+Ruta no necesariamente a utilizar en algo, podria ser una vista inicial del administrador, devuelve sus datos mientras tanto
+
+```
+
+🔸Se actualizara su propiedad validate a true.
 

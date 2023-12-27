@@ -1,18 +1,24 @@
 const { User } = require('../config/db');
+const { sendConfirmationEmail } = require("../notif/nodemail/RegistroNotifUser");
 const bcrypt = require("bcrypt");
 
 // Create user
 const createUser = async (req, res) => {
      try {
-          const hashedPassword = await bcrypt.hash(req.body.password, 10);
-          req.body.password = hashedPassword;
-          const user = await User.create(req.body);
-          return res.status(201).json(user);
+         const hashedPassword = await bcrypt.hash(req.body.password, 10);
+         req.body.password = hashedPassword;
+ 
+         const user = await User.create(req.body);
+ 
+         
+         sendConfirmationEmail(req.body.email);
+ 
+         return res.status(201).json(user);
      } catch (error) {
-          console.error(error);
-          return res.status(500).json({ error: "Internal Server Error" });
+         console.error(error);
+         return res.status(500).json({ error: 'Internal Server Error' });
      }
-};
+ };
 
 // Get All Users
 const getAllUsers = async (_, res) => {
