@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         };
         const token = jwt.sign(
-            { userId: user.id },
+            { userId: user.id, type:user.type },
             jwtSecret,
             { expiresIn: '12h' },
         );
