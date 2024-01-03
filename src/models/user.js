@@ -20,6 +20,11 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM("Parents", "Admin", "SuperAdmin"),
       allowNull: false,
     },
+    subtype: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1, // Valor por defecto usuarios creados de forma manual sin provenir de AUTH0
+    },
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -44,5 +49,6 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
+
   });
 };
