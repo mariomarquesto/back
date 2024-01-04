@@ -1,34 +1,35 @@
 const nodemailer = require('nodemailer');
+const { NODE_MAILER_USER, NODE_MAILER_PASS } = process.env;
 
 
 const createTransporter = () => {
      return nodemailer.createTransport({
-         service: 'gmail',
-         auth: {
-             user: 'ruukazu@gmail.com', // Replace with your Gmail email
-             pass: 'awvq fcge vrvu yqeh' // Replace with your Gmail password
-         }
+          service: 'gmail',
+          auth: {
+               user: `${NODE_MAILER_USER}`, // Replace with your Gmail email
+               pass: `${NODE_MAILER_PASS}` // Replace with your Gmail password
+          }
      });
- };
- 
- const sendConfirmationEmail = (userEmail) => {
+};
+
+const sendConfirmationEmail = (userEmail) => {
      const transporter = createTransporter();
- 
+
      const mailOptions = {
-         from: 'ruukazu@gmail.com',
-         to: userEmail,
-         subject: 'Confirmacion de registro de usuario',
-         text: 'Gracias por registrarse en la aplicacion'
+          from: `${NODE_MAILER_USER}`,
+          to: userEmail,
+          subject: 'Confirmacion de registro de usuario',
+          text: 'Gracias por registrarse en la aplicacion'
      };
- 
+
      transporter.sendMail(mailOptions, (error, info) => {
-         if (error) {
-             console.error('Error sending email:', error);
-         } else {
-             console.log('Email sent:', info.response);
-         }
+          if (error) {
+               console.error('Error sending email:', error);
+          } else {
+               console.log('Email sent:', info.response);
+          }
      });
- };
- module.exports = {
-    sendConfirmationEmail,
+};
+module.exports = {
+     sendConfirmationEmail,
 };
