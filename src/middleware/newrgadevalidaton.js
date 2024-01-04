@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const gradeValidate = (req, res, next) => {
     const schema = Joi.object({
-        id: Joi.string().uuid().required(),
+        // id: Joi.string().uuid().required(),
         gradename: Joi.string().required(),
         gradequota: Joi.number().integer().required(),
         state: Joi.boolean().default(true),
