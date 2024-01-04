@@ -1,0 +1,24 @@
+const { User, Parents, Estudiante } = require("../config/db");
+
+const getAllAdmins = async (_, res) => {
+  try {
+    const users = await User.findAll({ where: { type: "Admin" } });
+    return res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+// FALTAN CONTROLADORES PARA :
+/*
+
+DESACTIVAR ADMIN
+REACTIVAR PADRE/ESTUDIANTE/ADMIN/CURSO
+
+
+*/
+
+module.exports = {
+  getAllAdmins,
+};
