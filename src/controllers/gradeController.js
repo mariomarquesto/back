@@ -4,15 +4,10 @@ const { Grade } = require('../config/db');
 
 //* Crea Grado POST 
 //! Validacion ok
-const newgrade = async (req ,res) => {
-    const { gradename, gradequota, state } = req.body; 
+const newgrade = async (req ,res) => { 
     try {
 
-       const gradonew = await Grade.create({
-            gradename,
-            gradequota:Number(gradequota),
-            state,
-            })
+       const gradonew = await Grade.create(req.body);
         return res.status(200).json(gradonew)
                 
     } catch (error) {
