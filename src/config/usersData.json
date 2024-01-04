@@ -1,5 +1,19 @@
 [
   {
+    "id": "192820e3-a3bc-44f1-bbfd-99da823d0201",
+
+    "email": "adminUser@example.com",
+    "password": "Password_123",
+    "type": "Admin",
+    "subtype": 1,
+    "nombre": "Admin",
+    "apellidoPaterno": "Test",
+    "apellidoMaterno": "Test",
+    "complete": true,
+    "validate": false,
+    "state": true
+  },
+  {
     "id": "192820e3-a3bc-44f1-bbfd-99da823d0200",
 
     "email": "hannah81@example.com",

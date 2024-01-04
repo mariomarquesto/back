@@ -9,9 +9,16 @@ const {
   parentDetail,
   approvedParent,
   admin,
+  getAllParents,
+  allStudents,
 } = require("../controllers/adminController");
+const { allgrades } = require("../controllers/gradeController");
 
 const adminRoutes = Router();
+
+adminRoutes.get("/admin/allParents", getAllParents);
+adminRoutes.get("/admin/allStudents", allStudents);
+adminRoutes.get("/admin/allGrades", allgrades);
 
 adminRoutes.get("/admin/parents-Active", getParentsActive);
 

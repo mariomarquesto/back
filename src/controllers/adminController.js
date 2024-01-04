@@ -13,24 +13,96 @@ const admin = async (req, res) => {
   }
 };
 
-// CONTROLADORES VISTAS PADRES
-const getParentsActive = async (_, res) => {
+// Fn para ordenado padres:
+const applySorting = (queryOptions, sort, order) => {
+  let orderClause = null;
+
+  if (sort === "name") {
+    orderClause = [["name", order]];
+  } else if (sort === "idDoc") {
+    orderClause = [["idDoc", order]];
+  }
+
+  if (orderClause) {
+    queryOptions.order = orderClause;
+  }
+
+  return queryOptions;
+};
+// Fn ordenado estudiantes
+const applySortingStudents = (queryOptions, sort, order) => {
+  let orderClause = null;
+
+  if (sort === "nombres") {
+    orderClause = [["nombres", order]];
+  } else if (sort === "idDocumento") {
+    orderClause = [["idDocumento", order]];
+  }
+
+  if (orderClause) {
+    queryOptions.order = orderClause;
+  }
+
+  return queryOptions;
+};
+
+// CONTROLADORES PADRES
+
+const getAllParents = async (req, res) => {
   try {
-    const parents = await Parents.findAll({
-      where: { validate: true, state: true },
-    });
-    return res.status(200).json({ count: parents.length, parents });
+    let queryOptions = {
+      where: { state: true },
+    };
+
+    queryOptions = applySorting(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+
+    const parents = await Parents.findAll(queryOptions);
+    res.status(200).json(parents);
   } catch (error) {
-    return res.status(400).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-const getParentsPending = async (_, res) => {
+const getParentsActive = async (req, res) => {
   try {
-    const parents = await Parents.findAll({ where: { validate: false } });
-    return res.status(200).json(parents);
+    let queryOptions = {
+      where: { validate: true, state: true },
+    };
+
+    queryOptions = applySorting(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+
+    const parents = await Parents.findAll(queryOptions);
+    res.status(200).json(parents);
   } catch (error) {
-    return res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const getParentsPending = async (req, res) => {
+  try {
+    let queryOptions = {
+      where: { validate: false, state: true },
+    };
+
+    queryOptions = applySorting(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+
+    const parents = await Parents.findAll(queryOptions);
+    res.status(200).json(parents);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -62,11 +134,37 @@ const approvedParent = async (req, res) => {
 };
 
 //CONTROLADORES VISTAS ESTUDIANTES
+
+const allStudents = async (req, res) => {
+  try {
+    let queryOptions = {
+      where: { state: true },
+    };
+
+    queryOptions = applySortingStudents(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+    const student = await Estudiante.findAll(queryOptions);
+    res.status(200).json(student);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 const getStudentsActive = async (req, res) => {
   try {
-    const student = await Estudiante.findAll({
+    let queryOptions = {
       where: { validate: true, state: true },
-    });
+    };
+
+    queryOptions = applySortingStudents(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+    const student = await Estudiante.findAll(queryOptions);
     res.status(200).json(student);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -75,9 +173,16 @@ const getStudentsActive = async (req, res) => {
 
 const getStudentsPending = async (req, res) => {
   try {
-    const student = await Estudiante.findAll({
-      where: { validate: false },
-    });
+    let queryOptions = {
+      where: { validate: false, state: true },
+    };
+
+    queryOptions = applySortingStudents(
+      queryOptions,
+      req.query.sort,
+      req.query.order || "ASC"
+    );
+    const student = await Estudiante.findAll(queryOptions);
     res.status(200).json(student);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -115,6 +220,7 @@ const approvedStudent = async (req, res) => {
 
 module.exports = {
   admin,
+  getAllParents,
   getParentsActive,
   getParentsPending,
   parentDetail,
@@ -123,4 +229,5 @@ module.exports = {
   getStudentsPending,
   studentDetail,
   approvedStudent,
+  allStudents,
 };
