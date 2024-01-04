@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-  createEstudiante,
-  getEstudianteById,
-  updateEstudianteById,
-  deleteEstudianteById,
-  getAllEstudiantes,
+     createEstudiante,
+     getEstudianteById,
+     updateEstudianteById,
+     deleteEstudianteById,
+     getAllEstudiantes,
 } = require("../controllers/estudianteController");
 const { getStudentIdByParentId } = require("../controllers/estudianteLookUp");
 
