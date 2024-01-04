@@ -6,7 +6,7 @@ const estudianteRoutes = require("./estudianteRoutes");
 const adminRoutes = require("./adminRoutes");
 const gradeRouter = require("./gradeRouter");
 const auth0router = require("./auth0");
-
+const superAdminRoutes = require("./superAdminRoutes");
 
 const router = Router();
 
@@ -16,7 +16,6 @@ router.use(parentsRoutes);
 router.use(adminRoutes);
 router.use(gradeRouter);
 router.use(auth0router);
-
-
+router.use(superAdminRoutes);
 
 module.exports = router;
