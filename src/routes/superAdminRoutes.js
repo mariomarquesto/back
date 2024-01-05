@@ -12,6 +12,12 @@ const {
   getAllParents,
   allStudents,
 } = require("../controllers/adminController");
+const {
+  reactPadre,
+  reactEstudiante,
+  desactAdmin,
+  reactAdmin,
+} = require("../controllers/superAdminCtrlExtras")
 
 const { deleteEstudianteById } = require("../controllers/estudianteController");
 const { allgrades, newgrade } = require("../controllers/gradeController");
@@ -57,5 +63,15 @@ superAdminRoutes.get("/SuperAdmin/studentDetail/:id", studentDetail);
 superAdminRoutes.put("/SuperAdmin/studentDetail/:id", approvedStudent);
 //ELIMINAR ESTUDIANTE
 superAdminRoutes.put("/SuperAdmin/studentDetail/:id", deleteEstudianteById);
+
+
+// REHABILITAR PADRE
+superAdminRoutes.put("/SuperAdmin/parentDetail/:id", reactPadre);
+// REHABILITAR ESTUDIANTE
+superAdminRoutes.put("/SuperAdmin/studentDetail/:id", reactEstudiante);
+// ELIMINAR ADMIN
+superAdminRoutes.put("/SuperAdmin/admin/:id", desactAdmin);
+// REHABILITAR ADMIN
+superAdminRoutes.put("/SuperAdmin/admin/:id", reactAdmin);
 
 module.exports = superAdminRoutes;
