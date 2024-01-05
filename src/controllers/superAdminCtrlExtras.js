@@ -24,7 +24,7 @@ const desactAdmin = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
-const reactAPadre = async (req, res) => {
+const reactPadre = async (req, res) => {
   const { id } = req.params;
   try {
     const parent = await Parents.findByPk(id);
@@ -39,17 +39,66 @@ const reactAPadre = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
+const reactEstudiante = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const estudiantes = await Estudiante.findByPk(id);
+    if (!estudiantes || estudiantes.state) {
+      return res.status(404).json({ error: "Estudiante not found" });
+    }
+    await estudiantes.update({ state: true });
+    return res
+      .status(200)
+      .json({ message: "Estudiante reactivated succesfully" });
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+const reactAdmin = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const users = await User.findByPk(id);
+    if (!users || users.state) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+    await users.update({ state: true });
+    return res
+      .status(200)
+      .json({ message: "Admin reactivated succesfully" });
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+const reactCurso = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const grades = await Grade.findByPk(id);
+    if (!grades || grades.state) {
+      return res.status(404).json({ error: "Grade not found" });
+    }
+    await grades.update({ state: true });
+    return res
+      .status(200)
+      .json({ message: "Grade reactivated succesfully" });
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+// Se Agregaron CONTROLADORES PARA :
+/*
+DESACTIVAR ADMIN
+REACTIVAR PADRE/ESTUDIANTE/ADMIN
+
 // FALTAN CONTROLADORES PARA :
 /*
-
-DESACTIVAR ADMIN
-REACTIVAR PADRE/ESTUDIANTE/ADMIN/CURSO
-
-
+/CURSO
 */
 
 module.exports = {
   getAllAdmins,
   desactAdmin,
-  reactAPadre,
+  reactPadre,
+  reactEstudiante,
+  reactAdmin,
+  reactCurso,
 };

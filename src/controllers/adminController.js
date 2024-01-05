@@ -1,4 +1,6 @@
 const { User, Parents, Estudiante } = require("../config/db");
+const { sendConfirmationEmailPadre } = require("../notif/nodemail/validaNotifPadre");
+const { sendConfirmationEmailEstudiante } = require("../notif/nodemail/validaNotifEstud");
 
 const admin = async (req, res) => {
   const { id } = req.params;
@@ -126,8 +128,12 @@ const approvedParent = async (req, res) => {
     if (!parent || !parent.state) {
       return res.status(404).json({ error: "Parent not found" });
     }
+
+    const { email } = parent;
     await Parents.update({ validate: true }, { where: { id } });
+    await sendConfirmationEmailPadre(email)
     return res.status(200).json({ message: "Parent approved successfully" });
+    
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
@@ -205,15 +211,49 @@ const studentDetail = async (req, res) => {
 const approvedStudent = async (req, res) => {
   const { id } = req.params;
   try {
-    const student = await Estudiante.findByPk(id);
+    const student = await Estudiante.findByPk(id, {
+      include: [
+        {
+          model: Parents,
+          include: [
+            {
+              model: User,
+              attributes: ['email'],
+            },
+          ],
+        },
+      ],
+    });
+
     if (!student || !student.state) {
       return res.status(404).json({ error: "Student not found" });
     }
+
     await Estudiante.update({ validate: true }, { where: { id } });
-    return res
-      .status(200)
-      .json({ message: "Estudiante approved successfully" });
+
+    
+    const parent = await Parents.findOne({
+      where: { id: student.Parents[0]?.id },
+      include: [
+        {
+          model: User,
+          attributes: ['email'],
+        },
+      ],
+    });
+
+    if (parent === undefined || parent.dataValues === undefined ) {
+      console.log(parent);
+      return res.status(500).json({ error: "Parent's email not found" });
+    }
+
+    const userEmail = parent.dataValues.email;
+
+    await sendConfirmationEmailEstudiante(userEmail);
+
+    return res.status(200).json({ message: "Estudiante approved successfully" });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };

@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const userRoutes = require("./userRoutes");
 const parentsRoutes = require("./parentsRoutes");
-const estudianteRoutes = require("./estudianteRoutes");
+const estudianteRoutes = require("./estudianteroutes");
 const adminRoutes = require("./adminRoutes");
 const gradeRouter = require("./gradeRouter");
 const auth0router = require("./auth0");
