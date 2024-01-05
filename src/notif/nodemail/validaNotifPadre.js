@@ -1,13 +1,13 @@
 const { createTransporter } = require("../nodemail/transporter");
  
- const sendConfirmationEmail = (userEmail) => {
+ const sendConfirmationEmailPadre = (userEmail) => {
      const transporter = createTransporter();
  
      const mailOptions = {
          from: 'ruukazu@gmail.com',
          to: userEmail,
-         subject: 'Confirmacion de registro de usuario',
-         text: 'Gracias por registrarse en la aplicacion'
+         subject: 'Confirmacion de validacion de padre',
+         text: 'Su usuario como padre ha sido validado y puede interactuar con la plataforma'
      };
  
      transporter.sendMail(mailOptions, (error, info) => {
@@ -19,5 +19,5 @@ const { createTransporter } = require("../nodemail/transporter");
      });
  };
  module.exports = {
-    sendConfirmationEmail,
+    sendConfirmationEmailPadre,
 };
