@@ -76,15 +76,18 @@ const reactCurso = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 const findAdminByName = async (req, res) => {
   const { name } = req.params;
   try {
-    const admin = await User.findOne({ where: { name, type: "Admin" } });
+    const admin = await User.findOne({
+      where: { nombre: name, type: "Admin" },
+    });
+    const array = [];
     if (!admin) {
       return res.status(404).json({ error: "Admin not found" });
     }
-    return res.status(200).json(admin);
+    array.push(admin);
+    return res.status(200).json(array);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
@@ -94,10 +97,12 @@ const findAdminByEmail = async (req, res) => {
   const { email } = req.params;
   try {
     const admin = await User.findOne({ where: { email, type: "Admin" } });
+    const array = [];
     if (!admin) {
       return res.status(404).json({ error: "Admin not found" });
     }
-    return res.status(200).json(admin);
+    array.push(admin);
+    return res.status(200).json(array);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
