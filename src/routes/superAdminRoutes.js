@@ -17,7 +17,9 @@ const {
   reactEstudiante,
   desactAdmin,
   reactAdmin,
-} = require("../controllers/superAdminCtrlExtras")
+  findAdminByName,
+  findAdminByEmail,
+} = require("../controllers/superAdminCtrlExtras");
 
 const { deleteEstudianteById } = require("../controllers/estudianteController");
 const { allgrades, newgrade } = require("../controllers/gradeController");
@@ -64,7 +66,6 @@ superAdminRoutes.put("/SuperAdmin/studentDetail/:id", approvedStudent);
 //ELIMINAR ESTUDIANTE
 superAdminRoutes.put("/SuperAdmin/studentDetail/:id", deleteEstudianteById);
 
-
 // REHABILITAR PADRE
 superAdminRoutes.put("/SuperAdmin/parentDetail/:id", reactPadre);
 // REHABILITAR ESTUDIANTE
@@ -73,5 +74,9 @@ superAdminRoutes.put("/SuperAdmin/studentDetail/:id", reactEstudiante);
 superAdminRoutes.put("/SuperAdmin/admin/:id", desactAdmin);
 // REHABILITAR ADMIN
 superAdminRoutes.put("/SuperAdmin/admin/:id", reactAdmin);
+
+superAdminRoutes.get("/SuperADmin/adminByName/:name", findAdminByName);
+
+superAdminRoutes.get("/SuperAdmin/adminByEmail/:email", findAdminByEmail);
 
 module.exports = superAdminRoutes;

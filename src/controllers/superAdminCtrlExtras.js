@@ -17,9 +17,7 @@ const desactAdmin = async (req, res) => {
       return res.status(404).json({ error: "Admin not found" });
     }
     await users.update({ state: false });
-    return res
-      .status(200)
-      .json({ message: "Admin deactivated succesfully" });
+    return res.status(200).json({ message: "Admin deactivated succesfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
@@ -32,9 +30,7 @@ const reactPadre = async (req, res) => {
       return res.status(404).json({ error: "Parent not found" });
     }
     await parent.update({ state: true });
-    return res
-      .status(200)
-      .json({ message: "Parent reactivated succesfully" });
+    return res.status(200).json({ message: "Parent reactivated succesfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
@@ -62,9 +58,7 @@ const reactAdmin = async (req, res) => {
       return res.status(404).json({ error: "Admin not found" });
     }
     await users.update({ state: true });
-    return res
-      .status(200)
-      .json({ message: "Admin reactivated succesfully" });
+    return res.status(200).json({ message: "Admin reactivated succesfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
@@ -77,13 +71,38 @@ const reactCurso = async (req, res) => {
       return res.status(404).json({ error: "Grade not found" });
     }
     await grades.update({ state: true });
-    return res
-      .status(200)
-      .json({ message: "Grade reactivated succesfully" });
+    return res.status(200).json({ message: "Grade reactivated succesfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+const findAdminByName = async (req, res) => {
+  const { name } = req.params;
+  try {
+    const admin = await User.findOne({ where: { name, type: "Admin" } });
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+    return res.status(200).json(admin);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const findAdminByEmail = async (req, res) => {
+  const { email } = req.params;
+  try {
+    const admin = await User.findOne({ where: { email, type: "Admin" } });
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+    return res.status(200).json(admin);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 // Se Agregaron CONTROLADORES PARA :
 /*
 DESACTIVAR ADMIN
@@ -101,4 +120,6 @@ module.exports = {
   reactEstudiante,
   reactAdmin,
   reactCurso,
+  findAdminByName,
+  findAdminByEmail,
 };
