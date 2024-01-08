@@ -6,6 +6,7 @@ const { jwtSecret } = process.env;
 const bcrypt = require ("bcrypt")
 const saltRounds = 10; // Numero de rondas del hashing
 const userAuth0Controller = {};
+const { sendConfirmationEmail } = require("../notif/nodemail/RegistroNotifUser")
 
 userAuth0Controller.loginOrSignup = async (req, res) => {
     try {
@@ -38,6 +39,8 @@ userAuth0Controller.loginOrSignup = async (req, res) => {
                 subtype: 2, // 1 cuando es creado manual y 2 cuando vienen por auth0 para pedirle luego que cambie su contraseña
                
             });
+
+            sendConfirmationEmail(email)
          
             // Generating a JWT token for the new user
             const token = jwt.sign({ userId: user.id }, jwtSecret, {

@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    console.log(req)
     try {
         const user = await User.findOne({ where: { email } });
         if (!user) {
@@ -19,7 +20,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         };
         const token = jwt.sign(
-            { userId: user.id, type:user.type },
+            { userId: user.id, type:user.type, nombre:user.nombre }, 
             jwtSecret,
             { expiresIn: '12h' },
         );
