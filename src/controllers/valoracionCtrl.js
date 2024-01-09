@@ -1,12 +1,30 @@
-const { Valoracion } = require("../config/db");
+const { Valoracion, Parents } = require("../config/db");
 
 // Create Valoracion
 const createValoracion = async (req, res) => {
   try {
-    const valoracion = await Valoracion.create(req.body);
-    return res.status(201).json(valoracion);
+    const { parentId } = req.body;
+    const parent = parentId ? await Parents.findByPk(parentId) : null;
+
+    if (parentId && !parent) {
+      return res
+        .status(404)
+        .json({ error: "Parent not found, cant create valoracion" });
+    }
+    const newValoracion = await Valoracion.create(req.body);
+
+    if (parentId && parent) {
+      await valoracion.addParent(parent);
+    }
+    return res.status(201).json({ valoracion: newValoracion });
   } catch (error) {
-    console.error(error);
+    if (error.name === "SequelizeValidationError") {
+      const validationErrors = error.errors.map((err) => ({
+        field: err.path,
+        message: err.message,
+      }));
+      return res.status(400).json({ errors: validationErrors });
+    }
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
