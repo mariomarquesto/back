@@ -1,15 +1,15 @@
 const { createTransporter } = require("../nodemail/transporter");
-const sendConfirmationEmail = (userEmail) => {
+const sendConfirmationEmailAdmin = (userEmail) => {
     const transporter = createTransporter();
 
     const mailOptions = {
         from: 'EasySchool <ruukazu@gmail.com>',
         to: userEmail,
-        subject: 'Confirmacion de registro de usuario',
+        subject: 'Confirmacion de registro de Administrador',
         html: `
-            <p>Estimado usuario,</p>
+            <p>Estimado Administrado,</p>
             
-            <p>Le extendemos un cordial saludo y agradecemos su registro en la aplicación EasySchool.</p>
+            <p>Le extendemos un cordial saludo y le damos la bienvenida a la aplicación EasySchool.</p>
             
             <p>
                 Agradecemos su participación y esperamos que disfrute de todos los beneficios que nuestra comunidad educativa tiene para ofrecer.
@@ -32,5 +32,5 @@ const sendConfirmationEmail = (userEmail) => {
 };
 
 module.exports = {
-    sendConfirmationEmail,
+    sendConfirmationEmailAdmin,
 };
