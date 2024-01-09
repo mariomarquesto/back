@@ -14,13 +14,20 @@ const loadDataToDatabase = async () => {
       path.join(__dirname, "studentsData.json"),
       "utf8"
     );
+
+    const valoracionesData = fs.readFileSync(
+      path.join(__dirname, "valoracionesData.json"),
+      "utf8"
+    );
     const User = db.User;
     const Parents = db.Parents;
     const Estudiante = db.Estudiante;
+    const Valoracion = db.Valoracion;
 
     const users = JSON.parse(userData);
     const parents = JSON.parse(parentsData);
     const students = JSON.parse(studentsData);
+    const valoraciones = JSON.parse(valoracionesData);
 
     for (const userData of users) {
       try {
@@ -59,6 +66,22 @@ const loadDataToDatabase = async () => {
                 return { error: error.message };
               }
             }
+            const valoracionesRelatedToParent = valoraciones.filter(
+              (value) => value.parentId === parent.id
+            );
+
+            for (const valoracionData of valoracionesRelatedToParent) {
+              try {
+                const [valoracion, valoracionCreated] =
+                  await Valoracion.findOrCreate({
+                    where: { id: valoracionData.id },
+                    defaults: valoracionData,
+                  });
+                await parent.addValoracion(valoracion);
+              } catch (error) {
+                return { error: error.message };
+              }
+            }
           } catch (error) {
             return { error: error.message };
           }
@@ -68,7 +91,7 @@ const loadDataToDatabase = async () => {
       }
     }
   } catch (error) {
-    console.error(error);
+    return { error: error.message };
   }
 };
 
