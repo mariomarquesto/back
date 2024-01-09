@@ -6,7 +6,7 @@ const createValoracion = async (req, res) => {
     const { parentId } = req.body;
     const parent = parentId ? await Parents.findByPk(parentId) : null;
 
-    if (parentId && !parent) {
+    if (!parentId && !parent) {
       return res
         .status(404)
         .json({ error: "Parent not found, cant create valoracion" });
@@ -14,7 +14,7 @@ const createValoracion = async (req, res) => {
     const newValoracion = await Valoracion.create(req.body);
 
     if (parentId && parent) {
-      await valoracion.addParent(parent);
+      await newValoracion.addParent(parent);
     }
     return res.status(201).json({ valoracion: newValoracion });
   } catch (error) {
