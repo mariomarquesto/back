@@ -33,13 +33,16 @@ let capsEntries = entries.map((entry) => [
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User, Parents, Estudiante, Grade } = sequelize.models;
+const { User, Parents, Estudiante, Grade, Valoracion } = sequelize.models;
 
 User.belongsToMany(Parents, { through: "userParent" });
 Parents.belongsToMany(User, { through: "userParent" });
 
 Parents.belongsToMany(Estudiante, { through: "parentEstudiante" });
 Estudiante.belongsToMany(Parents, { through: "parentEstudiante" });
+
+Parents.belongsToMany(Valoracion, { through: "valoracion_padre" });
+Valoracion.belongsToMany(Parents, { through: "valoracion_padre" });
 
 //Parents.belongsToMany(estudiante, { through: "parentEstudiante", as: "estudiantes", foreignKey: "userId" })
 //estudiante.belongsToMany(Parents, { through: "parentEstudiante", as: "parents", foreignKey: "estudianteId" })
