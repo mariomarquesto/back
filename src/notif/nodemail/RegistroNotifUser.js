@@ -1,18 +1,17 @@
 const nodemailer = require('nodemailer');
-const { NODE_MAILER_USER, NODE_MAILER_PASS } = process.env;
 
 
 const createTransporter = () => {
      return nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-               user: `${NODE_MAILER_USER}`, // Replace with your Gmail email
-               pass: `${NODE_MAILER_PASS}` // Replace with your Gmail password
-          }
+         service: 'gmail',
+         auth: {
+             user: 'ruukazu@gmail.com', // Replace with your Gmail email
+             pass: 'awvq fcge vrvu yqeh' // Replace with your Gmail password
+         }
      });
-};
-
-const sendConfirmationEmail = (userEmail) => {
+ };
+ 
+ const sendConfirmationEmail = (userEmail) => {
      const transporter = createTransporter();
 
      const mailOptions = {

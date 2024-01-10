@@ -1,5 +1,7 @@
 const Joi = require("joi");
-const cloudinaryUrl = Joi.string().regex(/^https:\/\/res.cloudinary.com\/your_cloud_name\/image\/upload\/.*$/);
+const cloudinaryUrl = Joi.string().regex(
+  /^https:\/\/res.cloudinary.com\/your_cloud_name\/image\/upload\/.*$/
+);
 
 const newParentValidation = (req, res, next) => {
   const schema = Joi.object({
@@ -7,7 +9,12 @@ const newParentValidation = (req, res, next) => {
       .pattern(/^[0-9]{7,15}$/)
       .required()
       .label("ID Document"),
-    fotoDocumento: Joi.string().uri({ scheme: ['http', 'https'] }).required().concat(cloudinaryUrl),
+    fotoDocumento: Joi.string()
+      .regex(/^(ftp|http|https):\/\/[^ "]+$/)
+      .required()
+      .error(new Error("El campo fotoDocumento debe ser una URL válida")),
+    //
+    // fotoDocumento: Joi.string().uri({ scheme: ['http', 'https'] }).required().concat(cloudinaryUrl),
     name: Joi.string().required().label("First Name"),
     lastName: Joi.string().required().label("Last Name"),
     educationLevel: Joi.string().required().label("Education Level"),

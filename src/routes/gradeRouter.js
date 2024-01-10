@@ -20,4 +20,5 @@ router.get('/grade', allgrades)   //mostrar todos los grados en la base de datos
 router.get('/grade/:id', findGradesId)   //busca los grados por Id en la base de datos //! OK busca por Id UUIU
 router.put ('/grade/:id', updateGrades) //actualizar informacion de un grado //! OK Actualiza por ID 
 router.put ('/gradedel/:id', deleteGrade ) // elimina de forma logica el grado 
+
 module.exports=router;
