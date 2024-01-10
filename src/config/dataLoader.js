@@ -19,15 +19,21 @@ const loadDataToDatabase = async () => {
       path.join(__dirname, "valoracionesData.json"),
       "utf8"
     );
+    const gradeData = fs.readFileSync(
+      path.join(__dirname, "gradeData.json"),
+      "utf8"
+    );
     const User = db.User;
     const Parents = db.Parents;
     const Estudiante = db.Estudiante;
     const Valoracion = db.Valoracion;
+    const Grade = db.Grade;
 
     const users = JSON.parse(userData);
     const parents = JSON.parse(parentsData);
     const students = JSON.parse(studentsData);
     const valoraciones = JSON.parse(valoracionesData);
+    const grades = JSON.parse(gradeData);
 
     for (const userData of users) {
       try {
@@ -62,6 +68,25 @@ const loadDataToDatabase = async () => {
                   }
                 );
                 await parent.addEstudiante(student);
+
+                const gradesRelatedToStudent = grades.filter(
+                  (grade) => grade.studentId === student.id
+                );
+
+                for (const gradeData of gradesRelatedToStudent) {
+                  try {
+                    const [grade, gradeCreated] = await Grade.findOrCreate({
+                      where: { id: gradeData.id },
+                      defaults: gradeData,
+                    });
+                    await student.addGrade(grade);
+                  } catch (error) {
+                    console.error(
+                      "Error creating or finding grade:",
+                      error.message
+                    );
+                  }
+                }
               } catch (error) {
                 return { error: error.message };
               }
