@@ -1,5 +1,6 @@
 const { User } = require('../config/db');
 const { sendConfirmationEmail } = require("../notif/nodemail/RegistroNotifUser");
+const { sendConfirmationEmailAdmin } = require("../notif/nodemail/validNotifAdmin");
 const bcrypt = require("bcrypt");
 
 // Create user
@@ -8,7 +9,10 @@ const createUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         req.body.password = hashedPassword;
         const user = await User.create(req.body);
-        sendConfirmationEmail(req.body.email);
+        if(user.type === "Admin"){
+            sendConfirmationEmailAdmin(req.body.email);
+        }
+        else{sendConfirmationEmail(req.body.email);}
         return res.status(201).json(user);
     } catch (error) {
         console.error(error);

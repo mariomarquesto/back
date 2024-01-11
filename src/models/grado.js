@@ -17,6 +17,12 @@ module.exports = (sequelize) => {
           gradequota: {
                type: DataTypes.INTEGER,
                allowNull: false,
+               defaultValue: 0,
+             
+          },
+          gradeQuotaLimit: {
+               type: DataTypes.INTEGER,
+               allowNull: false,
              
           },
           state: {

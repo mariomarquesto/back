@@ -70,6 +70,10 @@ module.exports = (sequelize) => {
                type: DataTypes.BOOLEAN,
                defaultValue: false,
           },
+          estadoPago: {
+               type: DataTypes.BOOLEAN,
+               defaultValue: false,
+          },
           state: {
                type: DataTypes.BOOLEAN,
                allowNull: true,

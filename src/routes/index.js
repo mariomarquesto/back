@@ -8,7 +8,9 @@ const gradeRouter = require("./gradeRouter");
 const auth0router = require("./auth0");
 const paymentRoutes = require("./payment.routes");
 const receiveWebhook = require("./payment.routes");
-const superadminroutes = require ("./superAdminRoutes")
+const superadminroutes = require("./superAdminRoutes");
+const valoracionesRoutes = require("./valoracionRoutes");
+
 const router = Router();
 
 router.use(userRoutes); // Full CRUD
@@ -20,6 +22,6 @@ router.use(auth0router);
 router.use(paymentRoutes);
 router.use(receiveWebhook);
 router.use(superadminroutes);
-
+router.use(valoracionesRoutes);
 
 module.exports = router;
