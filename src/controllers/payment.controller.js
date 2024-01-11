@@ -32,7 +32,7 @@ Mercado_Pago.post("/mercadopago", async (req, res) => {
                payment_methods: {
                     installments: 1,
                },
-               Notification_url: "https://2167-186-28-102-128.ngrok-free.app/webhook" /*`${BACK_URL}/webhook`*/,
+               Notification_url: /*"https://2167-186-28-102-128.ngrok-free.app/webhook"*/ `${BACK_URL}/webhook`,
                external_reference: `${String(estudianteId)},${String(gradeId)},${String(parentid)}`,
                auto_return: "approved",
 
