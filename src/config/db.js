@@ -44,6 +44,11 @@ Estudiante.belongsToMany(Parents, { through: "parentEstudiante" });
 Parents.belongsToMany(Valoracion, { through: "valoracionPadre" });
 Valoracion.belongsToMany(Parents, { through: "valoracionPadre" });
 
+Estudiante.belongsToMany(Grade, {
+  through: "estudianteGrado",
+});
+Grade.belongsToMany(Estudiante, { through: "estudianteGrado" });
+
 //Parents.belongsToMany(estudiante, { through: "parentEstudiante", as: "estudiantes", foreignKey: "userId" })
 //estudiante.belongsToMany(Parents, { through: "parentEstudiante", as: "parents", foreignKey: "estudianteId" })
 
