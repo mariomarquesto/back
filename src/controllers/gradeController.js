@@ -22,7 +22,7 @@ const allgrades = async (req ,res) =>{
     console.log("paso por todos los grados")
     try {
             const grades = await Grade.findAll({ 
-                where: { state: true }, 
+                // where: { state: true || false}, 
                 attributes: { exclude: ['createdAt', 'updatedAt'] }
              });
          if (!grades) return res.status(404).json({error:"Grade is no exist"});

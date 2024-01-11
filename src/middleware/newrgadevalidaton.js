@@ -5,7 +5,7 @@ const gradeValidate = (req, res, next) => {
         // id: Joi.string().uuid().required(),
         gradename: Joi.string().required(),
         gradequota: Joi.number().integer().required(),
-        state: Joi.boolean().default(true),
+        // state: Joi.boolean().default(true),
     });
     const { error, value } = schema.validate(req.body);
     if (error) {
