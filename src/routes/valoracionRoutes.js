@@ -5,6 +5,7 @@ const {
   getValoracionById,
   updateValoracionById,
   deleteValoracionById,
+  hasParentRated,
 } = require("../controllers/valoracionCtrl");
 
 // const userValidationMiddleware = require("../middleware/userValidation");
@@ -16,6 +17,7 @@ valoracionesRoutes.get("/valoracion", getAllValoraciones);
 valoracionesRoutes.get("/valoracion/:id", getValoracionById);
 valoracionesRoutes.put("/valoracion/:id", updateValoracionById);
 valoracionesRoutes.put("/valoracionDelete/:id", deleteValoracionById);
+valoracionesRoutes.get("/valoracion/rated/:parentId", hasParentRated);
 
 module.exports = valoracionesRoutes;
 

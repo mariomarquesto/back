@@ -1,4 +1,5 @@
 const { Valoracion, Parents } = require("../config/db");
+const { conn } = require("../config/db");
 
 // Create Valoracion
 const createValoracion = async (req, res) => {
@@ -90,10 +91,33 @@ const deleteValoracionById = async (req, res) => {
   }
 };
 
+const hasParentRated = async (req, res) => {
+  const { parentId } = req.params;
+
+  try {
+    const result = await conn.models.valoracionPadre.findOne({
+      where: { ParentId: parentId },
+    });
+
+    if (result) {
+      res.status(200).json({ hasRated: true });
+    } else {
+      res.status(200).json({ hasRated: false });
+    }
+  } catch (error) {
+    console.error(
+      "Error al verificar si el padre ha realizado una valoración:",
+      error
+    );
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
+
 module.exports = {
   createValoracion,
   getAllValoraciones,
   getValoracionById,
   updateValoracionById,
   deleteValoracionById,
+  hasParentRated,
 };
