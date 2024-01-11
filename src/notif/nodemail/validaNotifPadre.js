@@ -1,13 +1,14 @@
 const { createTransporter } = require("../nodemail/transporter");
- 
- const sendConfirmationEmailPadre = (userEmail) => {
+require("dotenv").config();
+const { NODE_MAILER_USER } = process.env;
+
+const sendConfirmationEmailPadre = (userEmail) => {
      const transporter = createTransporter();
- 
      const mailOptions = {
-         from: 'ruukazu@gmail.com',
-         to: userEmail,
-         subject: 'Confirmacion de validacion de padre',
-         html: `
+          from: `${NODE_MAILER_USER}`,
+          to: userEmail,
+          subject: 'Confirmacion de validacion de padre',
+          html: `
          <p>Estimado Padre de Familia,</p>
          
          <p>Le extendemos un cordial saludo y le damos la bienvenida a la aplicación EasySchool.</p>
@@ -21,17 +22,15 @@ const { createTransporter } = require("../nodemail/transporter");
          
          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7lASO96V-SoGbSwGyJpHoF1OTaycauf-LL-gBRW76MDaSXT0DJc_h7gYA8_aQRqcyAI&usqp=CAU" alt="EasySchool Image">
      `
-
      };
- 
      transporter.sendMail(mailOptions, (error, info) => {
-         if (error) {
-             console.error('Error sending email:', error);
-         } else {
-             console.log('Email sent:', info.response);
-         }
+          if (error) {
+               console.error('Error sending email:', error);
+          } else {
+               console.log('Email sent:', info.response);
+          }
      });
- };
- module.exports = {
-    sendConfirmationEmailPadre,
+};
+module.exports = {
+     sendConfirmationEmailPadre,
 };
