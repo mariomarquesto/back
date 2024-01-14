@@ -38,6 +38,8 @@ const getStudentIdByParentId = async (req, res) => {
         "grupoSanguineo",
         "contactoEmerg",
         "fotoPerfil",
+        "validate",
+        "estadoPago",
         "state",
       ],
     });
