@@ -27,7 +27,7 @@ Mercado_Pago.post("/mercadopago", async (req, res) => {
                ],
                back_urls: {
                     success: `${FRONT_URL}/viewParent/myProfile`,  // cuando es pago exitoso nos regresa al perfil de padre donde realiza el pago 
-                    failure: `${FRONT_URL}/fallo`,
+                    failure: `${FRONT_URL}/viewParent/myProfile`,
                },
                payment_methods: {
                     installments: 1,
