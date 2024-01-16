@@ -5,7 +5,7 @@ const { NODE_MAILER_USER } = process.env;
 const sendConfirmationEmailPadre = (userEmail) => {
      const transporter = createTransporter();
      const mailOptions = {
-          from: `${NODE_MAILER_USER}`,
+          from: `EasySchool ${NODE_MAILER_USER}`,
           to: userEmail,
           subject: 'Confirmacion de validacion de padre',
           html: `
