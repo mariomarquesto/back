@@ -33,7 +33,12 @@ const createValoracion = async (req, res) => {
 // todas las Valoraciones
 const getAllValoraciones = async (_, res) => {
   try {
-    const valoraciones = await Valoracion.findAll();
+    const valoraciones = await Valoracion.findAll({
+      include: {
+        model: Parents,
+        through: "valroacionPadre",
+      },
+    });
     return res.status(200).json(valoraciones);
   } catch (error) {
     console.error(error);
