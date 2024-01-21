@@ -1,0 +1,122 @@
+[
+  {
+    "id": "7b36555e-721f-4908-9b8a-6d8d7fc53d98",
+    "parentId": "9844aa29-4f42-488e-b721-24b765e4838f",
+    "easeOfUse": "Fácil",
+    "satisfaction": 4,
+    "registrationProcess": "Fácil",
+    "userInterface": "Amigable",
+    "features": "Faltan más funcionalidades, Lenta",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "18e273f0-36b0-4f2f-b742-f2e89a9efeb0",
+    "parentId": "f1f5c68c-2489-4e96-8bfb-fc9eb8f6dc9c",
+    "easeOfUse": "Dificil",
+    "satisfaction": 3,
+    "registrationProcess": "Dificil",
+    "userInterface": "Difícil o poco intuitivo",
+    "features": "Práctica, Intituiva, Agilizadora",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "e6a41c5b-d73a-48b0-8bc9-844f8a1d226d",
+    "parentId": "e32bbf97-79ea-477d-b8ce-457222222252",
+    "easeOfUse": "Fácil",
+    "satisfaction": 5,
+    "registrationProcess": "Fácil",
+    "userInterface": "Amigable",
+    "features": "Práctica, Intituiva, Agilizadora",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "f45eae9c-53dc-4b0d-b42a-f5e567b1cc80",
+    "parentId": "a9492f3b-094c-45d8-84f5-aef17d80c304",
+    "easeOfUse": "Dificil",
+    "satisfaction": 2,
+    "registrationProcess": "Dificil",
+    "userInterface": "Difícil o poco intuitivo",
+    "features": "Complicada-Compleja",
+    "recommendation": false,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "9b70c2dc-034d-4f8c-aef5-1e6d2ab6c3e2",
+    "parentId": "f482b181-c5dd-45ef-b19f-979b86453cc5",
+    "easeOfUse": "Fácil",
+    "satisfaction": 5,
+    "registrationProcess": "Fácil",
+    "userInterface": "Amigable",
+    "features": "Práctica, Intituiva",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "c36c99a7-d0e4-4a88-a9a6-7c88368e864a",
+    "parentId": "820a3819-5c38-4bae-8490-ae031a95ecfd",
+    "easeOfUse": "Dificil",
+    "satisfaction": 1,
+    "registrationProcess": "Dificil",
+    "userInterface": "Difícil o poco intuitivo",
+    "features": "Complicada-Compleja, Faltan más Funcionalidades",
+    "recommendation": false,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "d923e39e-4f5f-4ab5-9612-3f60911dbabf",
+    "parentId": "944ebf13-0c4b-408e-9211-b72061e14ccc",
+    "easeOfUse": "Intermedio",
+    "satisfaction": 3,
+    "registrationProcess": "Intermedio",
+    "userInterface": "Entendible pero podría ser mejor",
+    "features": "Práctica, Agilizadora",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "4c6f1b19-aa0b-49e3-b294-0ff6b70f2408",
+    "parentId": "0b993baa-bbd3-4118-8e0e-000a07e12e0c",
+    "easeOfUse": "Dificil",
+    "satisfaction": 1,
+    "registrationProcess": "Dificil",
+    "userInterface": "Difícil o poco intuitivo",
+    "features": "Complicada-Compleja",
+    "recommendation": false,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "1235ff6e-4857-4db4-b8e4-2bfe0e593154",
+    "parentId": "95e2cbcc-24c0-4839-a635-8745760be277",
+    "easeOfUse": "Fácil",
+    "satisfaction": 4,
+    "registrationProcess": "Fácil",
+    "userInterface": "Amigable",
+    "features": "Práctica, Intituiva, Agilizadora",
+    "recommendation": true,
+    "additionalComments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "state": true
+  },
+  {
+    "id": "06aecc0d-c9ee-4296-a184-87b802e7e50d",
+    "parentId": "58e7f653-b57b-4218-9aa1-c9ee4fecbacc",
+    "easeOfUse": "Dificil",
+    "satisfaction": 2,
+    "registrationProcess": "Dificil",
+    "userInterface": "Difícil o poco intuitivo",
+    "features": "Agilizadora, Complicada-Compleja, Faltan más Funcionalidades",
+    "recommendation": false,
+    "additionalComments": "Lorem ipsum dolor sit amet, consecetur adipiscing elit.",
+    "state": true
+  }
+]

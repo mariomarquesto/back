@@ -1,0 +1,37 @@
+[
+     {
+          "id": "f45eae9c-53dc-4b0d-b42a-f5e567b1cc80",
+          "studentId": "9258460c-90b4-4848-8fa9-fd8fe45efe16",
+          "gradename": "Primero",
+          "gradeQuotaLimit": 30,
+          "state": true
+     },
+     {
+          "id": "11d3d019-c05a-4054-84cb-a5a0860486b0",
+          "studentId": "3bdecce2-5bb3-46be-9ab2-3ec17691943a",
+          "gradename": "Segundo",
+          "gradeQuotaLimit": 25,
+          "state": false
+     },
+     {
+          "id": "cac61782-ed2a-4d93-aeaf-1ccc92e54844",
+          "studentId": "dde41011-589c-4e3c-94df-76157d35661e",
+          "gradename": "Tercero",
+          "gradeQuotaLimit": 1,
+          "state": true
+     },
+     {
+          "id": "3bdecce2-5bb3-46be-9ab2-3ec17691943a",
+          "studentId": "b0a85be5-9a2e-47e5-9180-2d175d640c91",
+          "gradename": "Cuarto",
+          "gradeQuotaLimit": 1,
+          "state": true
+     },
+     {
+          "id": "82dcad90-42fd-4642-b166-9016cffe9459",
+          "studentId": "ec680b38-78e1-4e39-b352-3a39187cc7a8",
+          "gradename": "Quinto",
+          "gradeQuotaLimit": 20,
+          "state": false
+     }
+]
